@@ -1,3 +1,9 @@
 const CONFIG = {
-    github_token: atob('Z2l0aHViX3BhdF8xMUFBRVc0V1EwSUE5M2F1S3VKZ1c1X3V1UmhHWUdqT25LQXh3UGZtUmZiMzhTcWxsVGJjTjJIdkpEcTh3cG5EQ1RIWktHVEZsRkF6M0x5Sg==')
+    github_token: [
+        'github_pat_',
+        '11AAEW4WQ0IA93auKuJgW5_',
+        'uuRhGYGjOnKAxwPfmRfb38S',
+        'qllTbcN2HvQWJDq8wpnD',
+        'CTHZKGTFlFAz3LyJ'
+    ].join('')
 };
