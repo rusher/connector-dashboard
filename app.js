@@ -37,9 +37,6 @@ const REPOS_CONFIG = [
 ];
 
 const GITHUB_TOKEN = (typeof CONFIG !== 'undefined' && CONFIG.github_token) || localStorage.getItem('github_token') || '';
-const AUTO_REFRESH_INTERVAL = 5 * 60 * 1000;
-
-let autoRefreshTimer = null;
 
 async function fetchWorkflowStatus(owner, repo, branch) {
     const headers = {
@@ -186,50 +183,8 @@ function renderDashboard() {
     loading.style.display = 'none';
     dashboard.classList.add('loaded');
     
-    updateLastRefreshTime();
 }
-
-function updateLastRefreshTime() {
-    const lastUpdate = document.getElementById('lastUpdate');
-    const now = new Date();
-    lastUpdate.textContent = `Last updated: ${now.toLocaleTimeString()}`;
-}
-
-function refreshDashboard() {
-    const dashboard = document.getElementById('dashboard');
-    const loading = document.getElementById('loading');
-    
-    loading.style.display = 'block';
-    dashboard.classList.remove('loaded');
-    
-    setTimeout(() => {
-        renderDashboard();
-    }, 500);
-}
-
-function startAutoRefresh() {
-    if (autoRefreshTimer) {
-        clearInterval(autoRefreshTimer);
-    }
-    
-    autoRefreshTimer = setInterval(() => {
-        console.log('Auto-refreshing dashboard...');
-        refreshDashboard();
-    }, AUTO_REFRESH_INTERVAL);
-}
-
-document.getElementById('refreshBtn').addEventListener('click', () => {
-    refreshDashboard();
-    startAutoRefresh();
-});
 
 window.addEventListener('load', () => {
     renderDashboard();
-    startAutoRefresh();
-});
-
-window.addEventListener('beforeunload', () => {
-    if (autoRefreshTimer) {
-        clearInterval(autoRefreshTimer);
-    }
 });

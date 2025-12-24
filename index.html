@@ -11,10 +11,6 @@
         <header>
             <h1>🔍 GitHub Actions Dashboard</h1>
             <p class="subtitle">MariaDB Connectors Test Status</p>
-            <div class="controls">
-                <button id="refreshBtn" class="btn-refresh">🔄 Refresh All</button>
-                <span id="lastUpdate" class="last-update"></span>
-            </div>
         </header>
 
         <div id="loading" class="loading">
@@ -24,10 +20,6 @@
 
         <div id="dashboard" class="dashboard"></div>
 
-        <footer>
-            <p>Auto-refreshes every 5 minutes | Using GitHub API</p>
-            <p class="note">Note: GitHub API rate limit is 60 requests/hour without authentication, 5000 with token</p>
-        </footer>
     </div>
 
     <script src="config.js"></script>
