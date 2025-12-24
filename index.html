@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Dashboard - MariaDB Connectors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 GitHub Actions Dashboard</h1>
+            <p class="subtitle">MariaDB Connectors Test Status</p>
+            <div class="controls">
+                <button id="refreshBtn" class="btn-refresh">🔄 Refresh All</button>
+                <span id="lastUpdate" class="last-update"></span>
+            </div>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading workflow statuses...</p>
+        </div>
+
+        <div id="dashboard" class="dashboard"></div>
+
+        <footer>
+            <p>Auto-refreshes every 5 minutes | Using GitHub API</p>
+            <p class="note">Note: GitHub API rate limit is 60 requests/hour without authentication, 5000 with token</p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
